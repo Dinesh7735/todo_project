@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
 <html>
 <head>
     <title>To-Do App</title>
@@ -9,13 +17,10 @@
 <body class="container mt-5">
 
     <h2 class="text-center">To-Do List</h2>
-    <form method="GET" class="mb-3">
-        <input type="text" name="q" placeholder="Search tasks" class="form-control">
-    </form>
 
     <form method="POST" action="/add/" class="d-flex mb-3">
         {% csrf_token %}
-        <input type="text" name="title" class="form-control me-2" placeholder="Enter task" required>
+        <input type="text" name="title" class="form-control me-2" placeholder="Enter task">
         <button class="btn btn-primary">Add</button>
     </form>
 
@@ -40,20 +45,10 @@
         </li>
         {% endfor %}
     </ul>
-    <div class="mt-3">
-        {% if tasks.has_previous %}
-            <a href="?page=1">First</a>
-            <a href="?page={{ tasks.previous_page_number }}">Previous</a>
-        {% endif %}
-
-        Page {{ tasks.number }} of {{ tasks.paginator.num_pages }}
-
-        {% if tasks.has_next %}
-            <a href="?page={{ tasks.next_page_number }}">Next</a>
-        {% endif %}
-    </div>
 
     <a href="/logout/" class="btn btn-secondary mt-3">Logout</a>
 
+</body>
+</html>
 </body>
 </html>
